@@ -1,0 +1,94 @@
+body {
+    background: grey;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.background-image {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 50%; /* Ajusta el tamaño de la imagen según tus necesidades */
+    height: 100vh;
+    object-fit: cover;
+}
+
+.login-container {
+    position: relative;
+    width: 50%; /* Ajusta el ancho del contenedor de inicio de sesión según tus necesidades */
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login {
+    width: 400px;
+    height: 400px;
+    display: grid;
+    place-content: center;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+#title {
+    position: relative;
+    top: -40px;
+}
+
+#title h2 {
+    color: white;
+    text-align: center;
+}
+
+form {
+    display: grid;
+    place-content: center;
+}
+
+input[type=text],
+input[type=number],
+input[type=email],
+input[type=password] {
+    width: 350px;
+    padding: 20px;
+    margin: 8px 0;
+    margin-top: 30px;
+    display: inline-block;
+    border: 1px solid grey;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+button {
+    margin-top: 20px;
+    border-radius: 4px;
+    padding: 10px 20px;
+    font-size: 15px;
+    color: white;
+    background-color: #007bff; /* Color de fondo azul */
+    border: 1px solid #007bff; /* Borde azul */
+    cursor: pointer;
+    transition: background-color 0.3s, border-color 0.3s, transform 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3; /* Color de fondo azul más oscuro al pasar el mouse */
+    border-color: #0056b3; /* Borde azul más oscuro al pasar el mouse */
+}
+
+button:hover {
+    background-color: #0056b3; /* Color de fondo azul más oscuro al pasar el mouse */
+    border-color: #0056b3; /* Borde azul más oscuro al pasar el mouse */
+}
+
+#crearcuenta {
+    color: white;
+    text-decoration: none;
+    position: relative;
+    top: 15px;
+}

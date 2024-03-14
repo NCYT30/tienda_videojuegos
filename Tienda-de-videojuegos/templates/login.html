@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css' ) }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='js/login.js' ) }}">
+    <title>Document</title>
+</head>
+<body>
+    <div class="login-container">
+
+        <div class="login">
+            <div id="title">
+                <h2>Iniciar sesión</h2>
+            </div>
+            <form action="{{url_for('inlogin')}}" method="post">
+                <input class="inp" name="usuario"  type="text" placeholder="Usuario">
+                <input class="inp" name="contrasena" type="text" placeholder="Contraseña">
+                <button>Ingresar</button>
+            </form>
+            <a id="crearcuenta" href="{{url_for('crear')}}">Crear cuenta</a>
+        </div>
+        
+    </div>
+</body>
+</html>

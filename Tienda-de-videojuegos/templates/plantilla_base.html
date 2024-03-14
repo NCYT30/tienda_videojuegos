@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/juegos.css' ) }}">
+    <title>prueba- {% block titulo %}{% endblock %}</title>
+</head>
+<body>
+
+    <script type="text/javascript" src="{{url_for('static', filename = 'js/main.js')}}"></script>
+
+    <body data-authenticated="{{ 'true' if session.get('logged_in') else 'false' }}"></body>
+
+    <div class="header">
+
+        <ul id="menu">
+            <li>
+                <a href="{{url_for('home')}}">Todos los juegos</a>
+            </li>
+            <li>
+                <a href="{{url_for('categoria')}}">Categoria</a>
+            </li>
+            <li>
+                <a href="{{url_for('juegos')}}">Mis juegos</a>
+            </li>
+            <li>
+                <a href="{{url_for('login')}}">Iniciar sesion</a>
+            </li>
+        </ul>
+        
+    </div>
+
+    {%block contenido %} {% endblock %}
+</body>
+</html>

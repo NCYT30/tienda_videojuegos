@@ -1,0 +1,29 @@
+{% extends "plantilla_base.html" %}
+{% block titulo %} Categoria {% endblock %}
+{% block contenido %}
+
+<section class="section">
+
+    <form id="form-buscar">
+        <input type="text" id="input-buscar" placeholder="Buscar...">
+    </form>
+
+    
+    <div class="contenedor" id="contenedor-juegos">
+        {% for cate in categoria %}
+            <div class="elemento">
+                <div class="cara frontal">
+                    <img src="{{ url_for('static', filename='uploads/' + cate.imagen.decode('utf-8')) }}" alt="">
+                </div>
+                <div class="cara trasera">
+                    <div class="info">
+                        <h3 class="nombre">{{ cate.categoria }}</h3>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+</section>
+
+{% endblock %}

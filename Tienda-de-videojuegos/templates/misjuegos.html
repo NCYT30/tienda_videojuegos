@@ -1,0 +1,32 @@
+{% extends "plantilla_base.html" %}
+{% block titulo %} mis Juegos {% endblock %}
+{% block contenido %}
+
+<section class="section">
+
+    <form id="form-buscar">
+        <input type="text" id="input-buscar" placeholder="Buscar...">
+    </form>
+
+    
+    <div class="contenedor" id="contenedor-juegos">
+        {% for juego in juegos %}
+            <div class="elemento">
+                <div class="cara frontal">
+                    <img src="{{ url_for('static', filename='uploads/' + juego.imagen.decode('utf-8')) }}" alt="">
+                </div>
+                <div class="cara trasera">
+                    <div class="info">
+                        <h3 class="nombre">{{ juego.nombre_juego }}</h3>
+                        <p class="descripcion">Descripción del Juego</p>
+                        <p class="precio">{{ juego.precio_unitario }}</p>
+                        <button class="boton-comprar">Comprar</button>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+</section>
+
+{% endblock %}

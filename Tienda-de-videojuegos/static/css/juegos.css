@@ -1,0 +1,363 @@
+body {
+    background: grey;
+    margin: 0;
+    padding: 0;
+}
+
+#header {
+    width: 100%;
+    background: #2c2f34;
+    padding: 15px 0; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+#menu {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: right;
+    background: #2c2f34;
+}
+
+#menu li {
+    display: inline-block;
+    position: relative;
+    padding-left: 20px; 
+    padding-right: 20px;
+    margin-top: 15px;
+}
+
+#menu li a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px 15px;
+    display: inline-block;
+}
+
+#menu li a:hover {
+    background-color: #3b4047;
+}
+
+.submenu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #2c2f34;
+    padding: 10px;
+    z-index: 1;
+}
+
+#menu li:hover .submenu {
+    display: block;
+}
+
+.submenu li {
+    display: block;
+    padding: 5px 0;
+}
+
+.submenu li a {
+    color: white;
+    text-decoration: none;
+}
+
+
+#form-buscar {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 61px;
+    margin-bottom: 20px;
+}
+
+
+
+#input-buscar {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 300px;
+    font-size: 16px;
+}
+
+#input-buscar:focus {
+    outline: none;
+    border-color: #007bff;
+}
+
+#input-buscar::placeholder {
+    color: #aaa;
+}
+
+#input-buscar:hover::placeholder {
+    color: #777;
+}
+
+#input-buscar:focus::placeholder {
+    color: transparent;
+}
+
+
+.section {
+    position: relative;
+    left: 10%;   
+    top: 150px;
+    bottom: 50%;
+    width: 80%;
+}
+
+.contenedor {
+    margin: 25px;
+    padding: 25px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-gap: 30px;
+}
+
+.elemento {
+    perspective: 1000px;
+    position: relative;
+    width: 250px;
+    height: 350px;
+    overflow: hidden;
+}
+
+.frontal {
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    transition: transform 0.5s;
+    transform-style: preserve-3d;
+}
+.frontal img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.trasera {
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    transform: rotateY(180deg);
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.info {
+    text-align: center;
+}
+
+.info h3 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.info p {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.info .boton-comprar {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.info .boton-comprar:hover {
+    background-color: #0056b3;
+}
+
+/* Estilo para el botón de editar */
+.info .boton-editar {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 10px; /* Espacio entre la descripción y el botón de editar */
+}
+
+.info .boton-editar:hover {
+    background-color: #0056b3;
+}
+
+.elemento:hover .frontal {
+    transform: rotateY(-180deg);
+}
+
+.elemento:hover .trasera {
+    transform: rotateY(0deg);
+}
+
+
+.nombp {
+    text-align: center;
+}
+
+
+.elementocate {
+    background-color: white;
+    padding: 10px;
+    font-size: 15px;
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    text-align: center;
+}
+
+
+.modal-content form {
+    display: grid;
+    grid-gap: 20px;
+}
+
+.modal-content label {
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.modal-content input[type="text"],
+.modal-content input[type="number"],
+.modal-content select {
+    width: 100%;
+    padding: 12px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+.modal-content input[type="submit"] {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.modal-content input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+
+/* Estilos para el modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+}
+
+.modal-content {
+    background-color: transparent;
+    margin: 5% auto;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    width: 23%;
+    transition: transform 0.3s ease;
+    transform: scale(0.8);
+}
+
+.modal-content form {
+    display: grid;
+    grid-gap: 20px;
+}
+
+.modal-content label {
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.modal-content input[type="text"],
+.modal-content input[type="number"],
+.modal-content select {
+    width: 100%;
+    padding: 12px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+.modal-content input[type="submit"] {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.modal-content input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+.modal.show {
+    display: block;
+    opacity: 1;
+}
+
+.modal.show .modal-content {
+    transform: scale(1);
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}

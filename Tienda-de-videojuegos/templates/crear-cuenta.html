@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css' ) }}">
+    <title>Crear cuenta</title>
+</head>
+<body>
+
+    <div class="crear-container">
+
+        <div class="crear">
+
+            <h2>Crear cuenta</h2>
+
+            <form action="{{url_for('guardarUsuario')}}" method="post">
+                @csrf
+                <input name="nombre" type="text" placeholder="Nombre">
+                <input name="edad" type="number" placeholder="Edad">
+                <input name="usuario" type="text" placeholder="Usuario">
+                <input name="correo" type="email" placeholder="Correo">
+                <input name="contrasena" type="password" placeholder="Contraseña">
+                <button>Crear cuenta</button>
+            </form>
+
+        </div>
+        
+    </div>
+</body>
+</html>

@@ -1,0 +1,50 @@
+{% extends "admin.html" %}
+{% block titulo %} Categoria {% endblock %}
+{% block contenido %}
+
+<section class="section">
+
+    <form id="form-buscar">
+        <input type="text" id="input-buscar" placeholder="Buscar...">
+    </form>
+
+    
+    <div class="contenedor" id="contenedor-juegos">
+        {% for cate in categoria %}
+            <div class="elemento" id="categoria-{{ cate.id }}">
+                <div class="cara frontal">
+                    <img src="{{ url_for('static', filename='uploads/' + cate.imagen.decode('utf-8')) }}" alt="">
+                </div>
+                <div class="cara trasera">
+                    <div class="info">
+                        <h3 class="nombre">{{ cate.categoria }}</h3>
+                        <button class="boton-editar-categoria">Editar Categoría</button>
+                        <button class="boton-eliminar" data-id="{{ cate.id }}">Eliminar</button>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    
+
+        <div class="modal" id="modal-editar-categoria">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Editar Juego</h2>
+                <form id="form-editar" action="{{url_for('editar_categoria')}}" method="POST" enctype="multipart/form-data">
+                    <input type="hidden" id="id_cate" name="id_cate">
+                    <label for="nombre">Categoria:</label>
+                    <input type="text" id="categoria" name="categoria">
+
+                    <label for="imagen">Imagen:</label>
+                    <input type="file" id="imagen" name="imagen" accept="image/*" required><br><br>
+                
+                    <button type="submit">Guardar</button>
+                </form>
+                
+            </div>
+        </div>
+
+</section>
+
+{% endblock %}

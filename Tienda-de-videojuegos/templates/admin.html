@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/juegos.css' ) }}">
+    <title>ADMIN {% block titulo %}{% endblock %}</title>
+</head>
+<body>
+
+    <script type="text/javascript" src="{{url_for('static', filename = 'js/main.js')}}"></script>
+
+    
+    <ul id="menu">
+        <li>
+            <a href="{{url_for('adminjuegos')}}">Todos los juegos</a>
+            <ul class="submenu">
+                <li><a href="#" class="crear-juego">Crear Juegos</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="{{url_for('admincategoria')}}">Categoria</a>
+            <ul class="submenu">
+                <a href="#" class="crear-categoria">Crear Categoría</a>
+            </ul>
+        </li>
+        <li>
+            <a href="{{url_for('perfil')}}">Mi perfil</a>
+        </li>
+        <li>
+            <a href="{{url_for('logout')}}">Cerrar sesion</a>
+        </li>
+    </ul>
+
+    <div id="modal" class="modal">
+
+        <div class="modal-content">
+    
+            <span class="close">&times;</span>
+    
+            <form id="modal-form" action="{{ url_for('guardarJuego') }}" method="POST" enctype="multipart/form-data">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre_juego" required><br><br>
+            
+                <label for="precio">Precio:</label>
+                <input type="number" id="precio" name="precio_unitario" required><br><br>
+            
+                <label for="cantidad">Cantidad:</label>
+                <input type="number" id="cantidad" name="cantidad" required><br><br>
+            
+                <label for="fk_categoria">Categoría:</label>
+                <select id="fk_categoria" name="fk_categoria" required>
+                    <option value="1">Categoría 1</option>
+                    <option value="2">Categoría 2</option>
+                    <option value="3">Categoría 3</option>
+                </select><br><br>
+    
+                <label for="imagen">Imagen:</label>
+                <input type="file" id="imagen" name="imagen" accept="image/*" required><br><br>
+            
+                <input type="submit" value="Guardar">
+    
+            </form>
+            
+        </div>
+    </div>    
+    
+    <div id="modal-categoria" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <form id="modal-form-categoria" action="{{url_for('guardarCategoria')}}" method="POST">
+                <label for="nombre_categoria">Nombre de la categoría:</label>
+                <input type="text" id="nombre_categoria" name="categoria" required><br><br>
+
+                <label for="imagen">Imagen:</label>
+                <input type="file" id="imagen" name="imagen" accept="image/*" required><br><br>
+            
+                <input type="submit" value="Guardar">
+            </form>
+        </div>
+    </div>
+    
+
+    {%block contenido %} {% endblock %}
+</body>
+</html>

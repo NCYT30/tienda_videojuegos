@@ -1,0 +1,62 @@
+{% extends "admin.html" %}
+{% block titulo %} Juegos {% endblock %}
+{% block contenido %}
+
+<section class="section">
+
+    <form id="form-buscar">
+        <input type="text" id="input-buscar" placeholder="Buscar...">
+    </form>
+
+
+    <div class="contenedor" id="contenedor-juegos">
+        {% for juego in juegos %}
+            <div class="elemento">
+                <div class="cara frontal">
+                    <img src="{{ url_for('static', filename='uploads/' + juego.imagen.decode('utf-8')) }}" alt="">
+                </div>
+                <div class="cara trasera">
+                    <div class="info">
+                        <h3 class="nombre">{{ juego.nombre_juego }}</h3>
+                        <p class="precio">{{ juego.precio_unitario }}</p>
+                        <p class="cantidad">{{ juego.cantidad }}</p>
+                        <button class="boton-editar" data-id="{{ juego.id }}" data-nombre="{{ juego.nombre_juego }}" data-precio="{{ juego.precio_unitario }}" data-cantidad="{{ juego.cantidad }}">Editar</button>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+    <!-- Modal para editar juego -->
+    <div class="modal" id="modal-editar">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Editar Juego</h2>
+            <form id="form-editar" action="{{url_for('editar_juego')}}" method="POST" enctype="multipart/form-data">
+                <input type="hidden" id="id_juego" name="id_juego">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre_juego" name="nombre_juego">
+                <label for="precio">Precio:</label>
+                <input type="text" id="precio_unitario" name="precio_unitario">
+                <label for="cantidad">Cantidad:</label>
+                <input type="text" id="cantidad" name="cantidad" class="editar">                
+                <label for="fk_categoria">Categoría:</label>
+                <select id="fk_categoria" name="fk_categoria">
+                    <!-- Aquí debes agregar opciones de categoría según tu base de datos -->
+                    <option value="1">Categoría 1</option>
+                    <option value="2">Categoría 2</option>
+                    <!-- Agrega más opciones según sea necesario -->
+                </select>
+
+                <label for="imagen">Imagen:</label>
+                <input type="file" id="imagen" name="imagen" accept="image/*" required><br><br>
+            
+                <button type="submit">Guardar</button>
+            </form>
+            
+        </div>
+    </div>
+
+</section>
+
+{% endblock %}
